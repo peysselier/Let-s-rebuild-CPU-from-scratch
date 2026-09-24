@@ -26,6 +26,30 @@ Dans `Ri`, on calcule `Rj - Rk`
 
 ---
 
+#### ADI
+
+- Permet d'ajouter une valeur à un registre du `Reg File`
+- Syntaxe : ADI Ri A
+
+- `Ri` : registre écrit  
+- `A` : nombre en décimal
+
+---
+
+#### INC
+
+- Permet de retrancher 1 à un registre
+- Syntaxe : INC Ri
+
+---
+
+#### DEC
+
+- Permet d'ajouter 1 à un registre
+- Syntaxe : DEC Ri
+
+---
+
 ### Opérations CODE
 
 #### LDI
@@ -35,3 +59,17 @@ Dans `Ri`, on calcule `Rj - Rk`
 
 - `Ri` : registre écrit  
 - `A` : nombre en décimal
+
+---
+
+#### RSH
+
+- fait un decalage à gauche bit à bit de la valeur du registre
+- Syntaxe : RSH Ri
+
+**Exemple**
+
+`RSH R1`
+
+Si R1 = 00100100, au coup de clock suivant, R1 = 01001000
+

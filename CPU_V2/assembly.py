@@ -1,6 +1,7 @@
 ALU = {
     'ADD':'0010', 'SUB':'0011', 'NOR':'0100', 'AND':'0101', 
-    'XOR':'0110', 'RSH':'0111','LDI':'1000'
+    'XOR':'0110', 'RSH':'0111','LDI':'1000','ADI':'1001',
+    'INC':'1001','DEC':'1001'
     }
 
 WRITE = {
@@ -29,6 +30,22 @@ with open('fichier.txt', 'r') as f:
                 read = WRITE[tokens[1]]
 
                 code_machine = opcode + ' ' + read + ' ' + '0000' + ' ' + read
+
+            elif instr == 'ADI':
+                read = WRITE[tokens[1]]
+                value = bin(int(tokens[2]))[2:].zfill(8)
+
+                code_machine = opcode + ' ' + read + ' ' + value[0:4] + ' ' + value[4:8] 
+
+            elif instr == 'INC':
+                read = WRITE[tokens[1]]
+
+                code_machine = opcode + ' ' + read + ' ' + '0000' + ' ' + '0001'
+
+            elif instr == 'DEC':
+                read = WRITE[tokens[1]]
+
+                code_machine = opcode + ' ' + read + ' ' + '1111' + ' ' + '1111'
 
             else:
                 write = WRITE[tokens[3]]
